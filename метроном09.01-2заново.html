@@ -1,0 +1,40 @@
+<html>
+<input type="number" id="ChastotaRavnogo"><br>Частота равномерного метронома<br>щелчков в минуту<br><br>
+
+<button id="PuskRavnogoId" onclick="PuskRavnogo ()">Запуск равномерного метронома</button><br><br>
+
+<button id="OstanovRavnogoId" onclick="OstanovRavnogo ()">Остановка равномерного метронома</button>
+
+<script>
+function beep (tone, pisk) {
+	var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+	var oscillator = audioCtx.createOscillator();
+	var gainNode = audioCtx.createGain();
+	var now = audioCtx.currentTime;
+	var pisk;
+	oscillator.connect(gainNode);
+	gainNode.connect(audioCtx.destination);
+	oscillator.frequency.value = tone; 
+	oscillator.start(now);
+	oscillator.stop(now + pisk);
+} 
+var PuskRazreshon = false;
+
+function Krug () {
+	if (PuskRazreshon == true) {
+		beep (800, 0.2);
+		setTimeout (Krug, 1000);
+	}
+}
+
+function PuskRavnogo () {
+	PuskRazreshon = true;
+	Krug ();
+}
+
+function OstanovRavnogo () {
+	PuskRazreshon = false;
+	//clearTimeout(Rabotaem);
+}
+</script>
+</html>
