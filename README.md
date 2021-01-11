@@ -14,3 +14,10 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+<script>
+  function Hallo () {
+  alert ('Hallo!');
+  console.log ('Hallo!');
+  )
+  Hallo ();
+  </script>
